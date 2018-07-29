@@ -1,0 +1,21 @@
+<section>
+    <form (submit)="onSubmit(f)" fxLayoutGap="10px" fxLayout="column" fxLayoutAlign="center center" #f="ngForm">
+        <mat-form-field>
+            <mat-error *ngIf="mail.hasError('required')">El campo es requerido</mat-error>
+            <mat-error *ngIf="!mail.hasError('required')">Email es invalido</mat-error>
+            <input #mail="ngModel" type="email" matInput placeholder="correo" ngModel name="mail" email required>
+        </mat-form-field>
+        <mat-form-field hintLabel="La contraseña debe ser de minimo 6 caracteres">
+            <input #pass="ngModel" required minlength="6" type="password" matInput placeholder="password" ngModel name="pass">
+            <mat-error>La contraseña debe tener minimo 6 caracteres</mat-error>
+            <mat-hint align="end">{{pass.value?.length}}/6</mat-hint>
+        </mat-form-field>
+        <mat-form-field>
+            <input [max]="maxDate" matInput [matDatepicker]="picker" placeholder="birthday" ngModel name="date" required>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-checkbox ngModel name="agree" color="primary" required>Acceptar</mat-checkbox>
+        <button [disabled]="f.invalid" type="submit" color="primary" mat-raised-button>Submit</button>
+    </form>
+</section>
