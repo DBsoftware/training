@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: 'AIzaSyClTpwTmcihfUrqEef0EhTTdZhjs2HnkPs',
+    apiKey: '',
     authDomain: 'ng-fitness-21a48.firebaseapp.com',
     databaseURL: 'https://ng-fitness-21a48.firebaseio.com',
     projectId: 'ng-fitness-21a48',
